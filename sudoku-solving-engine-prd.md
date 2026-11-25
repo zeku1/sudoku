@@ -4,32 +4,9 @@
 
 Terminal Sudoku is a small C++20 application for playing and solving standard 9x9 Sudoku. Users can choose a premade puzzle, enter a custom puzzle, fill cells manually, or ask the program to solve the current board.
 
-This document describes the implemented project in `main.cpp`. It is intended for users, students explaining the program, and developers maintaining it.
-
-| Item | Current implementation |
-| --- | --- |
-| Interface | Terminal only; no GUI or browser |
-| Language | C++20 |
-| Structure | One source file with ordinary functions |
-| Dependencies | C++ standard library; Windows console APIs or Linux POSIX terminal APIs and ANSI sequences |
-| Board | 9 rows, 9 columns, nine 3x3 boxes |
-| Premade puzzles | Nine fixed puzzles: Easy 1-3, Medium 1-3, Hard 1-3 |
-| Solver | Recursive backtracking |
-| Storage | In memory only; no saved progress |
-| Network | Not required |
-
 The goal is to make Sudoku easy to play in a terminal while keeping the implementation understandable. Difficulty labels are approximate, not calculated ratings.
 
 ## 2. Launch modes
-
-| Command | Behavior |
-| --- | --- |
-| `sudoku.exe` | Open the interactive menu when terminal initialization succeeds on Windows or Linux; otherwise use text mode |
-| `sudoku.exe --text` | Read a custom puzzle and use typed commands |
-| `sudoku.exe --self-test` | Run assert-based checks and exit; requires a build without `NDEBUG` |
-| Unsupported arguments | Print usage and exit with an error |
-
-Interactive controls support Windows consoles and Linux ANSI-compatible terminals. Redirected input/output uses text mode. On Linux, a missing TERM value or TERM=dumb also selects text mode. A console error after interactive mode has started ends that session and displays a message to restart with `--text`; it does not automatically transfer the game to text mode.
 
 ### Startup flowchart
 
